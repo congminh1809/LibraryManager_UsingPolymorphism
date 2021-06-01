@@ -25,6 +25,7 @@ void CThuVien::Input()
 			x = new CDocGiaTreEM;
 			cout << endl << "Nhap thong tin doc gia tre em: ";
 			x->Input();
+			x->Setter_KT(true); //đánh dấu đây là độc giả trẻ em
 			ds_docgia.push_back(x); // thêm đôi tượng đọc giả trẻ em vào mảng vector độc giả 
 		}
 		else if (luachon == 2)
@@ -32,6 +33,7 @@ void CThuVien::Input()
 			x = new CDocGiaNguoiLon;
 			cout << endl << "Nhap thong tin doc gia nguoi lon: ";
 			x->Input();
+			x->Setter_KT(false); //đánh dấu đây là độc giả người lớn 
 			ds_docgia.push_back(x); // thêm đôi tượng đọc giả người lớn vào mảng vector độc giả 
 		}
 		else if (luachon == 0)
@@ -69,14 +71,28 @@ void CThuVien::Output()
 			cout << endl << "Danh sach doc gia: ";
 			for (int i = 0; i < ds_docgia.size(); i++)
 			{
-				cout << endl << "Thong tin doc gia thu " << i + 1 << ": ";
-				ds_docgia[i]->Output();
-				cout << endl << "So tien phai tra: " << ds_docgia[i]->TinhTienLamThe();
-				cout << endl;
-				cout << endl;
-				//system("pause");
-				cout << endl;
-				cout << endl;
+				if (ds_docgia[i]->Getter_KT()==true)
+				{
+					cout << endl << "Thong tin doc gia tre em thu " << i + 1 << ": ";
+					ds_docgia[i]->Output();
+					cout << endl << "So tien phai tra: " << ds_docgia[i]->TinhTienLamThe();
+					cout << endl;
+					cout << endl;
+					//system("pause");
+					cout << endl;
+					cout << endl;
+				}
+				else
+				{
+					cout << endl << "Thong tin doc gia nguoi lon thu " << i + 1 << ": ";
+					ds_docgia[i]->Output();
+					cout << endl << "So tien phai tra: " << ds_docgia[i]->TinhTienLamThe();
+					cout << endl;
+					cout << endl;
+					//system("pause");
+					cout << endl;
+					cout << endl;
+				}
 			}
 			system("pause");
 		}
