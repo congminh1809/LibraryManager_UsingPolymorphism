@@ -10,8 +10,9 @@ protected:
 	int sothangcohieuluc;
 
 public:
-	void Input(); //Phương thức nhập thôgn tin độc giả
-	void Output(); //Phương thức xuất thôgn tin độc giả
+	virtual void Input(); //Phương thức ảo nhập thôgn tin độc giả
+	virtual void Output(); //Phương thức ảo xuất thôgn tin độc giả
+	virtual int TinhTienLamThe() = 0; //khai báo hương thức thuần ảo 
 	//CDocGia();
 	//~CDocGia();
 };
